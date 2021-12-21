@@ -1,4 +1,4 @@
-exports.db = [
+const db = [
   { name: "Vi", age: 24 },
   { name: "Jinx", age: 17 },
   { name: "Ekko", age: 16 },
@@ -8,3 +8,5 @@ exports.db = [
   { name: "Silco", age: 43 },
   { name: "Jayce", age: 34 },
 ];
+
+export default db;
