@@ -1,9 +1,12 @@
-import React from "react"
+import React from 'react';
+import List from './Components/List';
+import FriendProvider from './contexts/FriendProvider';
 
 function App() {
   return (
-    <div>
-    </div>
+    <FriendProvider>
+      <List />
+    </FriendProvider>
   );
 }
 

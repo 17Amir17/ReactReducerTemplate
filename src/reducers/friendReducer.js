@@ -14,8 +14,7 @@ export default function reducer(state, action) {
       return [...state, action.payload.friend];
     case REMOVE_FRIEND:
       const target = action.payload.friend;
-      const newState = [...state];
-      newState.filter((f) => {
+      const newState = state.filter((f) => {
         return f.name !== target.name || f.age !== target.age;
       });
       return newState;
