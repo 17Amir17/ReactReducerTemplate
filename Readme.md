@@ -1,95 +1,70 @@
-# State Management - useContext + useReducer
+# Getting Started with Create React App
 
-## Topics:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- useContext
-- useReducers
-- Actions and dispatch
-- complex state logic
+## Available Scripts
 
-## Code snips:
+In the project directory, you can run:
 
-### main-context.js
+### `npm start`
 
-```
-import { createContext } from "react";
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-const mainContext = createContext();
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-export default mainContext;
+### `npm test`
 
-```
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### MainState.js
+### `npm run build`
 
-```
-import React, { useReducer } from "react";
-import mainContext from "./main-context";
-import { mainReducer } from "../reducers/mainReducer";
-const MainState = (props) => {
-  const [list, dispatch] = useReducer(mainReducer, []);
-  return (
-    <mainContext.Provider
-      value={{
-        list,
-        dispatch,
-      }}
-    >
-      {props.children}
-    </mainContext.Provider>
-  );
-};
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-export default MainState;
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### mainReducer.js
+### `npm run eject`
 
-```
-// No Side Effects
-export const mainReducer = (state, action) => {
-  switch (action.type) {
-    case "INITIAL_DATA":
-      return [...action.data];
-    case "FILTER_LIST":
-      let stateAfterFilter = state.filter(function (item) {
-        return item.title.includes(action.title);
-      });
-      return [...stateAfterFilter];
-    case "UPDATE_LIST":
-      let updatedState = state.map((item) => {
-        if (item.id === action.id) return { ...item, title: action.title };
-        return item;
-      });
-      return [...updatedState];
-    default:
-      return [...state];
-  }
-};
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-```
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Resources:
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-- [useReducer](https://reactjs.org/docs/hooks-reference.html#usereducer)
-- [useContext](https://reactjs.org/docs/hooks-reference.html#usecontext)
-- [useReducer 2](https://www.robinwieruch.de/react-usereducer-hook/)
-- [Code example](https://github.com/leighhalliday/demo-infinite-scroll/blob/master/src/WithReducer.js)
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Task:
+## Learn More
 
-1. Building a template:
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- Please use the template we wrote in class or write a new template yourself to work with useReducer and useContext and implement all the ָָ**CRUD operations** on the attached list in the "drillDB" file.
-- Please build a reducer that can answer the following actions:
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-* "INITIAL_STATE" - will initial the state with the default list from the db.
-* "ADD_FRIEND" - will add a friend to the list with a given name a given age and a random id.
-* "REMOVE_FRIEND" - will remove a friend from the list by his/her id.
-* "UPDATE_FRIEND" - will update a friend's name/age from the list by his/her id.
+### Code Splitting
 
-- create a simple form to insert a new friend.
-- create a simple list to show the friends in the current state and to allow the user to update a friends name/age.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-2. [Follow the instructions](https://codesandbox.io/s/usereducer-exercise-1-3qkuu?file=/src/App.js:189-202)
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
