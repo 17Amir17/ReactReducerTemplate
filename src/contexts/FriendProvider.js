@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useState } from 'react';
 import friendReducer from '../reducers/friendReducer';
 import initialState from '../db/drillDB';
 

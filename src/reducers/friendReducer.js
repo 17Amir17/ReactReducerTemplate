@@ -25,7 +25,7 @@ export default function reducer(state, action) {
       for (let i = 0; i < updatedState.length; i++) {
         if (
           updatedState[i].name === friendT.name &&
-          updatedState.age === friendT.age
+          updatedState[i].age === friendT.age
         ) {
           updatedState[i] = updated;
           break;
